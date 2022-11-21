@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block header %}  {% include 'header.html' %}  {% endblock header %}
+
+{% block title %}  | Profile_update  {% endblock title %}
+
+{% block carousel %}    {% include 'carosel.html' %}   {% endblock carousel %}     
+
+{% block content %}
+ 
+<div class="container mt-5 mb-5">
+    <h2 class="name text-center text-capitalize">{(profile.first_name)}Profile</h2>
+    <div class="row">
+        <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">
+          <img src="{{profile.pix.url}}" class="w-50" alt="">
+        </div>
+        <div class="col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+          <div class="ccform">
+           <div class="cform form2">
+              <form action="{% url 'profile_update' %}" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="form-group">
+                {{update.as_p}}
+              </div>
+              <button type="submit" class="btn btn-primary">Update</button>
+
+              
+
+              </form>
+            </div>
+           </div>
+        </div>
+        <div class="col-10 col-sm-10 col-md-3 col-lg-3 pt-5">
+          <ul class="list-unstyled">
+            <li class="mb-3"><a href="{% url 'index' %}" class="btn w-75 btn-info">Home</a></li>
+            <li class="mb-3"><a href="{% url 'profile' %}" class="btn w-75 btn-info">Profile</a></li>
+            <li class="mb-3"><a href="{% url 'profile_update' %}" class="btn w-75 btn-info">Profile_update</a></li>
+            <li class="mb-3"><a href="" class="btn w-75 btn-info">Shopcart</a></li>
+            <li class="mb-3"><a href="{% url 'password' %}" class="btn w-75 btn-info">Password update</a></li>
+          </ul>
+        </div>
+    </div>
+  </div>
+  
+{% endblock content %}
+
+{% block contact %} {% include 'contact.html' %}  {% endblock contact %}
+
+{% block about %}  {% include 'about.html' %}   {% endblock about %}
+
+{% block team %} {% include 'team.html' %}  {% endblock team %}
+
+{% block footer %} {% include 'footer.html' %}  {% endblock footer %}
+  
+    
+    
+    
+    
